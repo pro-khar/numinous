@@ -1,26 +1,19 @@
 import { ThemeProvider } from "./components/theme-provider"
 import { ThemeToggle } from "./components/theme-toggle"
 import { Button } from "./components/ui/button"
-import { Input } from "./components/ui/input"
+
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+
 
 import { useState } from "react"
+
 import { Textarea } from "./components/ui/textarea"
-import { Ticket } from "lucide-react"
+
 
 
 
@@ -67,10 +60,10 @@ function App() {
                         
                 
                 <form>
-                <Textarea className="rounded-none h-full"/>
-                <Button>Save</Button>
-              
+                <Textarea className="rounded-lg h-[300px] my-3 text-md font-light dark:bg-gray-900 bg-gray-300"/>
+                <Button className="w-full">Save</Button>
                 </form>
+
                 </DialogTitle> 
             </DialogContent>
           </Dialog>
