@@ -1,17 +1,20 @@
 import { createContext, useContext } from "react";
 
 const NoteContext = createContext({
-    note: [    ///array because there will be multiple notes of same type
-        {
-            id: 1,
-            text: "Notes body text"
-        }
-    ],
-    addNote: (text:any) => {},
-    updateNote: (id, text:any) => {},
-    deleteNote: (id) => {}
-})
+  note: [
+    ///array because there will be multiple notes of same type
+    {
+      id: 1,
+      text: "Notes body text",
+      isPinned: false,
+    },
+  ],
+  addNote: (text) => {},
+  updateNote: (id, text) => {},
+  deleteNote: (id) => {},
+  pinNote: (id) => {},
+});
 
-export const useNote = () => (useContext(NoteContext))      //() instead of {} to avoid writing 'return', shortcut 'useNote' created for importing/calling 'NoteContext'
+export const useNote = () => useContext(NoteContext); //() instead of {} to avoid writing 'return', shortcut 'useNote' created for importing/calling 'NoteContext'
 
-export const NotesProvider = NoteContext.Provider
+export const NotesProvider = NoteContext.Provider;
