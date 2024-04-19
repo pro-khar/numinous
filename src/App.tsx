@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import { Textarea } from "./components/ui/textarea";
 import { NotesProvider } from "./context/noteContext";
 import NoteItems from "./components/noteItems";
+import { ScrollArea } from "./components/ui/scroll-area";
 
 function App() {
   //popup-functionality
@@ -74,8 +75,8 @@ function App() {
         {/* INPUT AND TOP-BAR */}
         <div className="bg-background h-screen text-gray-100">
           <div
-            id="header"
-            className=" h-10 py-6 border border-t-0 border-x-0 border-border flex items-center"
+            id="top-bar"
+            className=" h-10 py-6 border border-t-0 border-x-0 border-border flex items-center fixed w-full z-10 bg-background"
           >
             <p className="font-bold tracking-tight text-xl relative w-full px-4 text-foreground">
               Notepad X
@@ -116,7 +117,9 @@ function App() {
             <ThemeToggle />
           </div>
 
-          <NoteItems />
+          <ScrollArea className="pt-12">
+            <NoteItems />
+          </ScrollArea>
         </div>
       </ThemeProvider>
     </>

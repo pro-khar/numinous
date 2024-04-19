@@ -2,7 +2,7 @@ import { CardHeader, CardContent, Card } from "@/components/ui/card";
 
 export function NoteCard() {
   return (
-    <Card>
+    <Card className="max-w-[260px] min-h-[260px]">
       <CardHeader className="flex gap-2">
         <div className="flex gap-2">
           <TrashIcon className="h-4 w-4 hover:text-red-500" />
