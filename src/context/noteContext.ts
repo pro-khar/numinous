@@ -5,12 +5,13 @@ const NoteContext = createContext({
     ///array because there will be multiple notes of same type
     {
       id: 1,
+      title: "Note title",
       text: "Notes body text",
       isPinned: false,
     },
   ],
-  addNote: (text) => {},
-  updateNote: (id, text) => {},
+  addNote: (title, text) => {},
+  updateNote: (id, title, text) => {},
   deleteNote: (id) => {},
   pinNote: (id) => {},
 });

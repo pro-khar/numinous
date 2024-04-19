@@ -28,12 +28,14 @@ function App() {
 
   //main-working
   const [note, setnote] = useState([]);
-  const addNote = (text) => {
-    setnote((prev) => [{ id: Date.now(), ...text }, ...prev]);
+  const addNote = (title, text) => {
+    setnote((prev) => [{ id: Date.now(), ...title, text }, ...prev]);
   };
-  const updateNote = (id, text) => {
+  const updateNote = (id, title, text) => {
     setnote((prev) =>
-      prev.map((prevNote) => (prevNote.id === id ? text : prevNote))
+      prev.map((prevNote) =>
+        prevNote.id === id ? { ...prevNote, title, text } : prevNote
+      )
     );
   };
   const deleteNote = (id) => {
