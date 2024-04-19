@@ -15,19 +15,11 @@ import { Textarea } from "./components/ui/textarea";
 import { NotesProvider } from "./context/noteContext";
 import NoteItems from "./components/noteItems";
 import { ScrollArea } from "./components/ui/scroll-area";
+import Noteform from "./components/noteform";
 
 function App() {
-  //popup-functionality
-  const [isEditing, setIsEditing] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsEditing(true);
-  };
-  const handleMouseLeave = () => {
-    setIsEditing(false);
-  };
-
   //main-working
+
   const [note, setnote] = useState([]);
   const addNote = (title, text) => {
     setnote((prev) => [{ id: Date.now(), ...title, text }, ...prev]);
@@ -52,7 +44,7 @@ function App() {
     );
   };
 
-  //as soon as the app loads
+  //Local storage implementation using useEffect()
 
   //Loading data from Local Storage
   useEffect(() => {
@@ -72,7 +64,6 @@ function App() {
   return (
     <>
       <ThemeProvider>
-        {/* INPUT AND TOP-BAR */}
         <div className="bg-background h-screen text-gray-100">
           <div
             id="top-bar"
@@ -81,37 +72,11 @@ function App() {
             <p className="font-bold tracking-tight text-xl relative w-full px-4 text-foreground">
               Notepad X
             </p>
+
             <NotesProvider
               value={{ note, addNote, updateNote, deleteNote, pinNote }}
             >
-              <Dialog>
-                <DialogTrigger>
-                  <Button className="w-1/8 mr-2">New note</Button>
-                </DialogTrigger>
-                <DialogContent className="h-1/2">
-                  <DialogTitle className="pb-[-10px]">
-                    <div
-                      className="max-h-5"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                      contentEditable={isEditing}
-                      style={{
-                        border: "none",
-                        padding: 0,
-                        outline: isEditing ? "none" : "none",
-                        cursor: "text",
-                      }}
-                    >
-                      Untitled Note
-                    </div>
-
-                    <form>
-                      <Textarea className="rounded-lg 2xl:h-[350px] xl:h-[200px] my-3 text-md font-light dark:bg-gray-900 bg-gray-300" />
-                      <Button className="w-full">Save</Button>
-                    </form>
-                  </DialogTitle>
-                </DialogContent>
-              </Dialog>
+              <Noteform /> {/*INPUTTTTTT*/}
             </NotesProvider>
 
             <ThemeToggle />

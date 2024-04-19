@@ -2,11 +2,11 @@ import { CardHeader, CardContent, Card } from "@/components/ui/card";
 
 export function NoteCard() {
   return (
-    <Card className="max-w-[260px] min-h-[260px]">
+    <Card className="min-w-[290px] min-h-[260px] drop-shadow-sm ">
       <CardHeader className="flex gap-2">
         <div className="flex gap-2">
-          <TrashIcon className="h-4 w-4 hover:text-red-500" />
-          <PinIcon className="h-4 w-4 hover:text-blue-500" />
+          <TrashIcon className="w-5 hover:text-red-500" />
+          <PinIcon className="w-5 hover:text-blue-500" />
         </div>
         <div className="text-sm font-medium">Card</div>
       </CardHeader>
