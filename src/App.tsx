@@ -21,13 +21,13 @@ function App() {
   //main-working
 
   const [note, setnote] = useState([]);
-  const addNote = (title, text) => {
-    setnote((prev) => [{ id: Date.now(), ...title, text }, ...prev]);
+  const addNote = (text) => {
+    setnote((prev) => [{ id: Date.now(), ...text }, ...prev]);
   };
-  const updateNote = (id, title, text) => {
+  const updateNote = (id, text) => {
     setnote((prev) =>
       prev.map((prevNote) =>
-        prevNote.id === id ? { ...prevNote, title, text } : prevNote
+        prevNote.id === id ? { ...prevNote, text } : prevNote
       )
     );
   };
@@ -64,28 +64,32 @@ function App() {
   return (
     <>
       <ThemeProvider>
-        <div className="bg-background h-screen text-gray-100">
-          <div
-            id="top-bar"
-            className=" h-10 py-6 border border-t-0 border-x-0 border-border flex items-center fixed w-full z-10 bg-background"
-          >
-            <p className="font-bold tracking-tight text-xl relative w-full px-4 text-foreground">
-              Notepad X
-            </p>
-
-            <NotesProvider
-              value={{ note, addNote, updateNote, deleteNote, pinNote }}
+        <NotesProvider
+          value={{ note, addNote, updateNote, deleteNote, pinNote }}
+        >
+          <div className="bg-background h-screen text-gray-100">
+            <div
+              id="top-bar"
+              className=" h-10 py-6 border border-t-0 border-x-0 border-border flex items-center fixed w-full z-10 bg-background"
             >
+              <p className="font-bold tracking-tight text-xl relative w-full px-4 text-foreground">
+                Notepad X
+              </p>
               <Noteform /> {/*INPUTTTTTT*/}
-            </NotesProvider>
+              <ThemeToggle />
+            </div>
 
-            <ThemeToggle />
+            <ScrollArea className="pt-12">
+              <div className="flex gap-6 flex-wrap p-6">
+                {note.map((note) => (
+                  <div key={note.id}>
+                    <NoteItems note={note} />
+                  </div>
+                ))}
+              </div>
+            </ScrollArea>
           </div>
-
-          <ScrollArea className="pt-12">
-            <NoteItems />
-          </ScrollArea>
-        </div>
+        </NotesProvider>
       </ThemeProvider>
     </>
   );

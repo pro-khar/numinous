@@ -20,8 +20,8 @@ function Noteform() {
     e.preventDefault();
 
     if (!text) return;
-    console.log(title, text);
-    addNote({ title, text, isPinned: false });
+    console.log(text);
+    addNote({ title, text });
     settext("");
     settitle("");
   };

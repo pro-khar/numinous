@@ -11,7 +11,7 @@ const NoteContext = createContext({
     },
   ],
   addNote: (title, text) => {},
-  updateNote: (id, title, text) => {},
+  updateNote: (id, text) => {},
   deleteNote: (id) => {},
   pinNote: (id) => {},
 });
