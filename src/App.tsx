@@ -80,9 +80,9 @@ function App() {
             </div>
 
             <ScrollArea className="pt-12">
-              <div className="flex gap-6 flex-wrap p-6">
+              <div className="flex flex-col items-center gap-8 p-10 2xl:flex-row xl:flex-row 2xl:flex-wrap xl:flex-wrap transition duration-500 ease-in-out">
                 {note.map((note) => (
-                  <div key={note.id}>
+                  <div key={note.id} className="">
                     <NoteItems note={note} />
                   </div>
                 ))}
