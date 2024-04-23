@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/notes_shadcn",
+  base: "/PowerNotes",
   plugins: [react()],
   resolve: {
     alias: {
