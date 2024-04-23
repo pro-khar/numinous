@@ -10,7 +10,7 @@ const NoteContext = createContext({
       isPinned: false,
     },
   ],
-  addNote: (title, text) => {},
+  addNote: (text) => {},
   updateNote: (id, text) => {},
   deleteNote: (id) => {},
   pinNote: (id) => {},

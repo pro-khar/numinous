@@ -10,7 +10,6 @@ import {
 
 function NoteItems({ note }) {
   const { updateNote, deleteNote, pinNote } = useNote();
-  const [notetext, setNotetext] = useState(note.text);
 
   const notePinner = () => {
     pinNote(note.id);

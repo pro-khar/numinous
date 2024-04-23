@@ -1,13 +1,5 @@
 import { ThemeProvider } from "./components/theme-provider";
 import { ThemeToggle } from "./components/theme-toggle";
-import { Button } from "./components/ui/button";
-
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 
 import { useEffect, useState } from "react";
 
@@ -21,6 +13,7 @@ function App() {
   //main-working
 
   const [note, setnote] = useState([]);
+
   const addNote = (text) => {
     setnote((prev) => [{ id: Date.now(), ...text }, ...prev]);
   };
