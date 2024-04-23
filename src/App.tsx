@@ -3,11 +3,10 @@ import { ThemeToggle } from "./components/theme-toggle";
 
 import { useEffect, useState } from "react";
 
-import { Textarea } from "./components/ui/textarea";
 import { NotesProvider } from "./context/noteContext";
-import NoteItems from "./components/noteItems";
 import { ScrollArea } from "./components/ui/scroll-area";
 import Noteform from "./components/noteform";
+import NoteCard from "./components/noteCard";
 
 function App() {
   //main-working
@@ -73,10 +72,13 @@ function App() {
             </div>
 
             <ScrollArea className="pt-12">
-              <div className="flex flex-col items-center gap-8 p-10 2xl:flex-row xl:flex-row 2xl:flex-wrap xl:flex-wrap transition duration-500 ease-in-out">
+              <div className="flex flex-wrap justify-items-center gap-3 p-5 md:gap-8 xl:gap-8 2xl:gap-8 2xl:p-10 md:p-10 2xl:flex-row xl:flex-row md:flex-row 2xl:flex-wrap xl:flex-wrap md:justify-center 2xl:justify-normal xl:justify-normal md:flex-wrap transition duration-500 ease-in-out">
                 {note.map((note) => (
-                  <div key={note.id} className="">
-                    <NoteItems note={note} />
+                  <div
+                    key={note.id}
+                    className="w-[48%] md:w-[inherit] xl:w-[inherit] 2xl:w-[inherit]"
+                  >
+                    <NoteCard note={note} />
                   </div>
                 ))}
               </div>

@@ -1,6 +1,5 @@
 import { CardHeader, CardContent, Card } from "@/components/ui/card";
 import { useNote } from "@/context/noteContext";
-import { useState } from "react";
 import { Button } from "./ui/button";
 import {
   Popover,
@@ -8,7 +7,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-function NoteItems({ note }) {
+function NoteCard({ note }) {
   const { updateNote, deleteNote, pinNote } = useNote();
 
   const notePinner = () => {
@@ -19,13 +18,15 @@ function NoteItems({ note }) {
   return (
     <>
       <Card
-        className={`w-[290px] min-h-[260px] drop-shadow-sm ${
+        className={`md:w-[290px] md:min-h-[260px] xl:w-[290px] xl:min-h-[260px] 2xl:w-[290px] 2xl:min-h-[260px] drop-shadow-sm overflow-hidden ${
           note.isPinned ? "" : "hover:drop-shadow-xl"
         }`}
       >
         <CardHeader className="flex gap-2 p-4 bg-gray-100 dark:bg-background rounded-t-lg">
           <div className="flex gap-2">
-            <div className="text-lg font-medium w-full ml-2">{note.title}</div>
+            <div className="text-lg font-medium w-full ml-2">
+              {note.title ? note.title : "Untitled"}
+            </div>
 
             <Popover>
               <PopoverTrigger>
@@ -71,7 +72,7 @@ function NoteItems({ note }) {
   );
 }
 
-export default NoteItems;
+export default NoteCard;
 
 function PinIcon(props) {
   return (

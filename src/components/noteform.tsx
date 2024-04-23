@@ -43,7 +43,7 @@ function Noteform() {
             />
 
             <Textarea
-              className="rounded-lg 2xl:h-[350px] xl:h-[200px] my-3 text-md font-light dark:bg-gray-900 bg-gray-300 p-8"
+              className="rounded-lg 2xl:h-[350px] xl:h-[200px] my-3 text-md dark:bg-gray-900 bg-gray-300 p-5 font-normal"
               value={text}
               onChange={(e) => settext(e.target.value)}
             />
