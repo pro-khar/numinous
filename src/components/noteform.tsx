@@ -4,6 +4,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -31,7 +32,7 @@ function Noteform() {
       <DialogTrigger>
         <Button className="w-1/8 mr-2">New note</Button>
       </DialogTrigger>
-      <DialogContent className="h-1/2">
+      <DialogContent className="w-[90%] p-4 rounded-lg">
         <DialogTitle className="pb-[-10px]">
           <form onSubmit={add}>
             <Input
@@ -42,7 +43,7 @@ function Noteform() {
             />
 
             <Textarea
-              className="rounded-lg 2xl:h-[350px] xl:h-[200px] my-3 text-md font-light dark:bg-gray-900 bg-gray-300"
+              className="rounded-lg 2xl:h-[350px] xl:h-[200px] my-3 text-md font-light dark:bg-gray-900 bg-gray-300 p-8"
               value={text}
               onChange={(e) => settext(e.target.value)}
             />

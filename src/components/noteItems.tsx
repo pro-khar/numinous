@@ -1,7 +1,12 @@
 import { CardHeader, CardContent, Card } from "@/components/ui/card";
 import { useNote } from "@/context/noteContext";
 import { useState } from "react";
-import { Label } from "./ui/label";
+import { Button } from "./ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 function NoteItems({ note }) {
   const { updateNote, deleteNote, pinNote } = useNote();
@@ -14,20 +19,49 @@ function NoteItems({ note }) {
 
   return (
     <>
-      <Card className="w-[290px] min-h-[260px] drop-shadow-sm hover:drop-shadow-xl">
+      <Card
+        className={`w-[290px] min-h-[260px] drop-shadow-sm ${
+          note.isPinned ? "" : "hover:drop-shadow-xl"
+        }`}
+      >
         <CardHeader className="flex gap-2 p-4 bg-gray-100 dark:bg-background rounded-t-lg">
           <div className="flex gap-2">
             <div className="text-lg font-medium w-full ml-2">{note.title}</div>
-            <TrashIcon
-              className={`w-5 hover:text-red-500`}
-              onClick={() => deleteNote(note.id)}
-            />
+
+            <Popover>
+              <PopoverTrigger>
+                <TrashIcon
+                  className={`w-5 hover:text-red-500 ${
+                    note.isPinned ? "hidden" : "block"
+                  }`}
+                />
+              </PopoverTrigger>
+              <PopoverContent className="p-0 w-[200px]">
+                <div className="p-4 space-y-4">
+                  <h3 className="text-lg font-medium text-center">
+                    Are you sure?
+                  </h3>
+                  <div className="flex justify-center gap-2">
+                    <Button variant="ghost">
+                      <XIcon className="h-5 w-5" />
+                    </Button>
+                    <Button variant="destructive">
+                      <CheckIcon
+                        className="h-5 w-5"
+                        onClick={() => deleteNote(note.id)}
+                      />
+                    </Button>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+
             <PinIcon
               className={`w-5  ${
                 note.isPinned
                   ? "fill-blue-500 text-blue-500"
                   : "hover:text-blue-500"
-              }`}
+              } `}
               onClick={notePinner}
             />
           </div>
@@ -47,7 +81,7 @@ function PinIcon(props) {
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
-      viewBox="0 0 24 24"
+      viewBox="3 0 18 18"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
@@ -75,8 +109,46 @@ function TrashIcon(props) {
       strokeLinejoin="round"
     >
       <path d="M3 6h18" />
-      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+      <path d="M18 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
       <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+    </svg>
+  );
+}
+function CheckIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M18 6 6 18" />
+      <path d="m6 6 12 12" />
     </svg>
   );
 }
