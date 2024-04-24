@@ -18,7 +18,7 @@ function NoteCard({ note }) {
   return (
     <>
       <Card
-        className={`md:w-[290px] md:min-h-[260px] xl:w-[290px] xl:min-h-[260px] 2xl:w-[290px] 2xl:min-h-[260px] drop-shadow-sm overflow-hidden ${
+        className={`h-[200px] md:w-[290px] md:min-h-[260px] xl:w-[290px] xl:min-h-[260px] 2xl:w-[290px] 2xl:min-h-[260px] drop-shadow-sm overflow-hidden ${
           note.isPinned ? "" : "hover:drop-shadow-xl"
         }`}
       >

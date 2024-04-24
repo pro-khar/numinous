@@ -76,7 +76,7 @@ function App() {
                 {note.map((note) => (
                   <div
                     key={note.id}
-                    className="w-[48%] md:w-[inherit] xl:w-[inherit] 2xl:w-[inherit]"
+                    className="w-[48%] min-h-[200px] md:w-[inherit] xl:w-[inherit] 2xl:w-[inherit]"
                   >
                     <NoteCard note={note} />
                   </div>
