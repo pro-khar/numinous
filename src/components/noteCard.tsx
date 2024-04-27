@@ -6,7 +6,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
 
 function NoteCard({ note }) {
   const { updateNote, deleteNote, pinNote } = useNote();
@@ -67,16 +73,20 @@ function NoteCard({ note }) {
             />
           </div>
         </CardHeader>
+
         <Dialog>
           <DialogTrigger className="w-full text-left">
             <CardContent className="text-sm pt-4 h-full">
               {note.text}
             </CardContent>
           </DialogTrigger>
-          <DialogContent>
-            <DialogTitle>
+          <DialogContent className="w-[90%] rounded-lg">
+            <DialogTitle className="h-[fit-content]">
               {note.title ? note.title : "Untitled Note"}
             </DialogTitle>
+            <DialogDescription className="min-h-[150px]">
+              {note.text}
+            </DialogDescription>
           </DialogContent>
         </Dialog>
       </Card>
