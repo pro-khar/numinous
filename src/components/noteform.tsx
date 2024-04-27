@@ -1,5 +1,6 @@
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogTitle,
   DialogTrigger,
@@ -32,7 +33,7 @@ function Noteform() {
       <DialogTrigger>
         <Button className="w-1/8 mr-2">New note</Button>
       </DialogTrigger>
-      <DialogContent className="w-[90%] p-4 rounded-lg">
+      <DialogContent className="w-[90%] p-4 rounded-lg top-[22%] 2xl:top-[50%] md:top-[50%] xl:top-[50%]">
         <DialogTitle className="pb-[-10px]">
           <form onSubmit={add}>
             <Input
@@ -43,13 +44,16 @@ function Noteform() {
             />
 
             <Textarea
-              className="rounded-lg 2xl:h-[350px] xl:h-[200px] my-3 text-md dark:bg-gray-900 bg-gray-300 p-5 font-normal"
+              className="rounded-lg h-[200px] 2xl:h-[350px] xl:h-[200px] my-3 text-md dark:bg-gray-900 bg-gray-300 p-5 font-normal tracking-wide"
+              placeholder="Write something..."
               value={text}
               onChange={(e) => settext(e.target.value)}
             />
-            <Button type="submit" className="w-full">
-              Add
-            </Button>
+            <DialogClose asChild>
+              <Button type="submit" className="w-full">
+                Add
+              </Button>
+            </DialogClose>
           </form>
         </DialogTitle>
       </DialogContent>
