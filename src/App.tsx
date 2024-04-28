@@ -64,8 +64,8 @@ function App() {
               id="top-bar"
               className=" h-10 py-6 border border-t-0 border-x-0 border-border flex items-center fixed w-full z-10 bg-background"
             >
-              <p className="font-bold tracking-tight text-xl relative w-full px-4 text-foreground">
-                Numinous
+              <p className="font-bold tracking-tight text-xl relative w-full px-4 text-foreground ">
+                <span>N</span>uminous
               </p>
               <Noteform /> {/*INPUTTTTTT*/}
               <ThemeToggle />
