@@ -87,7 +87,7 @@ function NoteCard({ note }) {
             </CardContent>
           </DialogTrigger>
           <DialogContent className="w-[90%] rounded-lg">
-            <div className="flex gap-2 justify-between">
+            <div className="flex gap-2 justify-between items-center">
               <DialogTitle className="">
                 {note.title ? note.title : "Untitled Note"}
               </DialogTitle>
