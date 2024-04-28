@@ -13,9 +13,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
+import { MdOutlineEdit } from "react-icons/md";
+import { useState } from "react";
 
 function NoteCard({ note }) {
   const { updateNote, deleteNote, pinNote } = useNote();
+  const [newTitle, setNewTitle] = useState(note.title);
+  const [newText, setNewText] = useState(note.text);
+
+  const handleupdate = () => {};
 
   const notePinner = () => {
     pinNote(note.id);
@@ -77,15 +83,20 @@ function NoteCard({ note }) {
         <Dialog>
           <DialogTrigger className="w-full text-left">
             <CardContent className="text-sm pt-4 h-full">
-              {note.text}
+              <pre className="font-[inherit]">{note.text}</pre>
             </CardContent>
           </DialogTrigger>
           <DialogContent className="w-[90%] rounded-lg">
-            <DialogTitle className="h-[fit-content]">
-              {note.title ? note.title : "Untitled Note"}
-            </DialogTitle>
+            <div className="flex gap-2 justify-between">
+              <DialogTitle className="">
+                {note.title ? note.title : "Untitled Note"}
+              </DialogTitle>
+              <div className="text-2xl mr-5">
+                <MdOutlineEdit />
+              </div>
+            </div>
             <DialogDescription className="min-h-[150px]">
-              {note.text}
+              <pre className="font-[inherit]">{note.text}</pre>
             </DialogDescription>
           </DialogContent>
         </Dialog>
