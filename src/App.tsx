@@ -64,8 +64,13 @@ function App() {
               id="top-bar"
               className=" h-10 py-6 border border-t-0 border-x-0 border-border flex items-center fixed w-full z-10 bg-background"
             >
-              <p className="font-bold tracking-tight text-xl relative w-full px-4 text-foreground " >
-                <div style={{ transform: "scaleX(-1)", display: "inline-block"}}>N</div>uminous
+              <p className="font-bold tracking-tight text-xl relative w-full px-4 text-foreground ">
+                <div
+                  style={{ transform: "scaleX(-1)", display: "inline-block" }}
+                >
+                  N
+                </div>
+                uminous
               </p>
               <Noteform /> {/*INPUTTTTTT*/}
               <ThemeToggle />
@@ -83,6 +88,22 @@ function App() {
                 ))}
               </div>
             </ScrollArea>
+            <div
+              className={`flex items-center justify-center h-[600px] ${
+                note.length === 0 ? "block" : "hidden"
+              }`}
+            >
+              <div
+                id="welcome-note"
+                className="text-gray-300 dark:text-gray-500 text-sm"
+              >
+                click on{" "}
+                <span className="px-3 py-2 rounded-md border-gray-300 dark:border-gray-500 border-2 mx-2">
+                  New Note
+                </span>{" "}
+                to start adding notes :)
+              </div>
+            </div>
           </div>
         </NotesProvider>
       </ThemeProvider>
