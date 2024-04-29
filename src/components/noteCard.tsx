@@ -35,10 +35,14 @@ function NoteCard({ note }) {
           note.isPinned ? "" : "hover:drop-shadow-xl"
         }`}
       >
-        <CardHeader className="flex gap-2 p-4 bg-gray-100 dark:bg-background rounded-t-lg">
+        <CardHeader className="flex gap-2 p-4 bg-gray-100 dark:bg-background rounded-t-lg max-h-[60px] overflow-hidden">
           <div className="flex gap-2">
-            <div className="text-lg font-medium w-full ml-2">
-              {note.title ? note.title : "Untitled"}
+            <div className="text-lg font-medium w-full max-h-[28px] overflow-clip">
+              {note.title ? (
+                note.title
+              ) : (
+                <p className="text-gray-400">Untitled</p>
+              )}
             </div>
 
             <Popover>
